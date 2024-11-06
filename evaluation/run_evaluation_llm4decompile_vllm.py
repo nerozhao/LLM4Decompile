@@ -172,10 +172,11 @@ def decompile_pass_rate(testsets, gen_results_repeat, opts, args):
 
 
 def run_eval_pipeline(args: ArgumentParser) -> int:
-    model_path = Path(args.model_path)
-    if not model_path.exists() or not model_path.is_dir():
-        logger.error(f"Invalid model {model_path}")
-        return -1
+    model_path = args.model_path
+    # model_path = Path(args.model_path)
+    # if not model_path.exists() or not model_path.is_dir():
+    #     logger.error(f"Invalid model {model_path}")
+    #     return -1
 
     try:
         testsets = json.load(open(args.testset_path, "r"))
