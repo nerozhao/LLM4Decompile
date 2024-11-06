@@ -14,9 +14,9 @@
 #     --num_shards 4 \
 #     --num_workers 8 \
 
-python run_evaluation_llm4decompile_vllm.py \
+python run_evaluation_llm4decompile_singleGPU.py \
   --model_path LLM4Binary/llm4decompile-1.3b-v2 \
-  --testset_path ../decompile-eval/decompile-eval-executable-gcc-ghidra.json.json \
+  --testset_path ../decompile-eval/decompile-eval-executable-gcc-ghidra.json \
   --gpus 8 \
   --max_total_tokens 8192 \
   --max_new_tokens 512 \
