@@ -11,6 +11,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--model_path',type=str,default='LLM4Binary/llm4decompile-1.3b-v2',required=False)
 parser.add_argument('--data_path',type=str,default='../decompile-eval/decompile-eval-executable-gcc-ghidra.json',required=False)
 
+# 在文件开头添加
+torch.backends.cuda.enable_flash_sdp(False)  # 禁用 Flash Attention
+torch.backends.cuda.enable_mem_efficient_sdp(False)  # 禁用内存优化版本
+
 args = parser.parse_args()
 
 def evaluate_func(c_func,c_test,c_func_decompile):
